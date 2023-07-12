@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "incremental": true,
+    "target": "es6",
+    "module": "commonjs",
+    "strict": true,
+    "outDir": "./dist",
+    "allowSyntheticDefaultImports": true,
+    "rootDir": "./"
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules"]
+}

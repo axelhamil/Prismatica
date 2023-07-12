@@ -1,0 +1,23 @@
+// Source: prisma/config.prisma
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+// Source: src/test.prisma
+model Test {
+  id Int @id
+}
+
+model Test2 {
+  id Int @id
+  test Test @relation(fields: [testId], references: [id])
+  testId Int
+}
+
+

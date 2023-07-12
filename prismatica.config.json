@@ -1,0 +1,4 @@
+{
+  "outputSchemaFile": "./prisma/schema.prisma",
+  "watchPattern": "**/*.prisma"
+}

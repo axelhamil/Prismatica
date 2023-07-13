@@ -30,9 +30,9 @@ export class Watcher {
         return;
       }
       
-      if (eventType === "change") {
+      if (eventType === "change" || eventType === "rename") {
         const filePath = `${this.projectRoot}/${filename}`;
-        await this.schemaCombiner.combineSchemas(filePath);
+        await this.schemaCombiner.updateSchema(filePath);
       }
     });
   }

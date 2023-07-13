@@ -1,9 +1,0 @@
-model Test {
-  id Int @id
-}
-
-model Test2 {
-  id Int @id
-  test Test @relation(fields: [testId], references: [id])
-  testId Int
-}

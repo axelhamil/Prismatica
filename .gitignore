@@ -58,3 +58,5 @@ dist
 .yarn/install-state.gz
 .pnp.*
 .idea
+**/*.prisma
+.DS_Store

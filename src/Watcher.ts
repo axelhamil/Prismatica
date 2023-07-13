@@ -1,14 +1,14 @@
-import { SchemaCombiner } from "./SchemaCombiner";
+import { SchemaCompiler } from "./SchemaCompiler";
 import { IConfig } from "./types";
 import * as fs from 'fs';
 
 export class Watcher {
-  private readonly schemaCombiner: SchemaCombiner;
+  private readonly schemaCombiner: SchemaCompiler;
   private readonly watchPattern: string;
   private readonly projectRoot: string;
   private readonly watchRegex: RegExp;
   
-  constructor(schemaCombiner: SchemaCombiner, config: IConfig) {
+  constructor(schemaCombiner: SchemaCompiler, config: IConfig) {
     this.schemaCombiner = schemaCombiner;
     this.watchPattern = config.watchPattern;
     this.projectRoot = schemaCombiner.projectRoot;
@@ -23,7 +23,7 @@ export class Watcher {
   }
   
   async watch() {
-    await this.schemaCombiner.combineSchemas();
+    await this.schemaCombiner.compileSchemas();
     
     fs.watch(this.projectRoot, { recursive: true }, async (eventType, filename) => {
       if (!filename || !this.watchRegex.test(filename) || filename === "prisma/schema.prisma") {
